@@ -21,6 +21,14 @@ A project by [Marco Griep](https://marcogriep.de/).
 [Deutsch](#deutsch) · [Getting started](#getting-started) ·
 [Project website](#project-website) · [Contributing](#contributing)
 
+## The issue
+
+We as family are recording alot of video material and creating for each month an
+little videoclip. I dont have the time and effort anymore to cut those manually, some
+months having more than 200 small clips. Even i'm an softwaredeveloper i had also 
+no time to code this by myself and this is an vibe coded application. This can be 
+messy or overengineed. So feel free to help to keep this clean.
+
 ## The idea
 
 The most memorable clip is not always the sharpest or best-exposed one. A laugh,
