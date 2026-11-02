@@ -1,0 +1,22 @@
+baseURL = 'https://marcogriep88.github.io/OpenMemento/'
+title = 'OpenMemento'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+disableKinds = ['taxonomy', 'term', 'RSS']
+enableRobotsTXT = true
+
+[params]
+repository = 'https://github.com/MarcoGriep88/OpenMemento'
+authorURL = 'https://marcogriep.de/'
+
+[languages.en]
+locale = 'en-US'
+label = 'English'
+weight = 1
+title = 'OpenMemento — Your moments. A story worth keeping.'
+
+[languages.de]
+locale = 'de-DE'
+label = 'Deutsch'
+weight = 2
+title = 'OpenMemento — Eure Momente. Ein Film, der bleibt.'

@@ -1,0 +1,32 @@
+{
+  "skip": "Zum Inhalt", "navStory": "Die Idee", "navHow": "So funktioniert’s", "navPrivacy": "Lokal zuerst", "github": "Auf GitHub ansehen", "eyebrow": "WENIGER SCHNEIDEN. MEHR ERINNERN.",
+  "heroStart": "Das Leben passiert.", "heroEnd": "Mach einen Film daraus.", "heroText": "Tausend kleine Clips. Eine Geschichte, die bleibt. OpenMemento findet die bedeutungsvollen Momente in euren Familienvideos und verbindet sie – so, wie das Leben sie geschrieben hat.",
+  "primary": "Projekt entdecken", "secondary": "So funktioniert’s", "status": "Desktop-Anwendung · In Entwicklung", "photoLabel": "AUS KLEINEN AUGENBLICKEN WERDEN GROSSE ERINNERUNGEN.", "photoAlt": "Sonnige Berglandschaft als Symbol für einen Familienausflug", "photoNote": "Symbolische Aufnahmen · Kein Screenshot der Anwendung", "stamp": "Für eure Erinnerungen", "frameLabel": "EIN SOMMER, DER BLEIBT", "frameDate": "12. — 26. JULI", "frameCaption": "Eine Reise. So viele kleine Geschichten.",
+  "strip": ["Eure Aufnahmen", "OpenCV + Gemini", "Chronologisch erzählt", "Auf eurem Computer gerendert"],
+  "storyLabel": "01 / DIE IDEE", "storyTitle": "Den Moment festgehalten.\nDas Gefühl bewahrt.", "storyText": "Der erste Sprung ins Meer. Ein Geburtstagswunsch. Das Lachen hinter der Kamera. Die schönsten Familienmomente liegen verstreut auf Smartphones und Festplatten. Sie wiederzufinden sollte keine Ewigkeit dauern.", "storyQuote": "Ein bedeutungsvoller Moment zählt mehr als eine perfekte Aufnahme.", "storyDetail": "OpenMemento soll aus großen Sammlungen kurzer Videos einen durchdachten ersten Schnitt machen. Ein Wochenende, ein Urlaub, ein Monat oder ein frei gewählter Zeitraum. Eure Geschichte gibt den Rahmen vor.",
+  "howLabel": "02 / VOM CLIP ZUM FAMILIENFILM", "howTitle": "Weniger sortieren.\nMehr erzählen.", "howIntro": "Lokale Bildanalyse leistet die Vorarbeit. Gemini hilft zu verstehen, welche Momente zählen. Ihr behaltet das letzte Wort.",
+  "steps": [
+    {"title": "Clips mitbringen.", "text": "Medienordner auswählen. Die Desktop-App erfasst Aufnahmedaten und Metadaten lokal. Eure Originaldateien bleiben unverändert.", "tag": "LOKALE MEDIENBIBLIOTHEK"},
+    {"title": "Momente entdecken.", "text": "OpenCV analysiert Szenen, Bewegung und Bildqualität. Mit eurer Zustimmung untersucht Gemini Video und Ton auf bedeutungsvolle Zeitabschnitte.", "tag": "OPENCV + GEMINI"},
+    {"title": "Geschichte gestalten.", "text": "Zeitraum und Ziellänge wählen. Aus gespeicherten Analysen entsteht ein chronologischer Filmplan mit ausgewogener Ereignisauswahl, den ihr prüfen und bearbeiten könnt.", "tag": "BEARBEITBARER ERSTER SCHNITT"},
+    {"title": "Filmabend machen.", "text": "Highlights prüfen, Auswahl anpassen und mit FFmpeg lokal als MP4 exportieren. Euer Film entsteht auf eurem Computer.", "tag": "LOKALER EXPORT"}
+  ],
+  "demoLabel": "03 / SO KÖNNTE ES AUSSEHEN", "demoTitle": "Jedes Kapitel eures Lebens.", "demoIntro": "Ein Wochenende ist eine Geschichte. Ein ganzes Jahr auch. Ihr wählt den Rahmen.", "demoNote": "Interaktives Konzept · Beispieldaten und Ziellängen, kein Live-Editor oder erzeugtes Ergebnis.", "examples": [
+    {"name": "Ein Sommer unterwegs", "date": "12.–26. Juli 2026", "duration": "12 Min.", "chapters": ["Die Ankunft", "Am Wasser", "Neue Abenteuer", "Der Heimweg"]},
+    {"name": "Ein Geburtstag", "date": "3. Oktober 2026", "duration": "5 Min.", "chapters": ["Die Vorbereitungen", "Alle sind da", "Wünsch dir was", "Ein letzter Tanz"]},
+    {"name": "Ein Jahr zusammen", "date": "Januar–Dezember 2026", "duration": "20 Min.", "chapters": ["Wintertage", "Hallo Frühling", "Sommergeschichten", "Zu Hause zum Fest"]}
+  ], "timelineLabel": "CHRONOLOGISCHER FILMPLAN", "target": "ZIEL", "timelineStart": "Der Anfang", "timelineEnd": "Eine bleibende Erinnerung", "demoAria": "Filmbeispiel auswählen",
+  "privacyLabel": "04 / EURE FAMILIE. EURE DATEIEN.", "privacyTitle": "Zu Hause auf\neurem Computer.", "privacyText": "Familienvideos sind persönlich. Medienbibliothek, lokale Analyse und fertiger Export bleiben auf eurem Rechner. Die KI-Analyse ist ein separater, bewusst gestarteter Schritt.",
+  "privacyItems": [
+    {"title": "Lokal, wo es zählt.", "text": "Indexierung, OpenCV-Verarbeitung, Analyse-Cache und FFmpeg-Export laufen lokal. Zum Speichern oder Rendern eurer Medien ist keine Cloud des Entwicklers nötig."},
+    {"title": "Euer Schlüssel. Eure Entscheidung.", "text": "Nutzt euren eigenen Gemini-API-Schlüssel. Er liegt im unterstützten sicheren Schlüsselspeicher des Betriebssystems. Google rechnet die KI-Nutzung direkt mit euch ab."},
+    {"title": "Wissen, was den Rechner verlässt.", "text": "Freigegebene Analysevideos mit Ton werden direkt an Google Gemini gesendet. Die semantische Analyse braucht Internet und unterliegt Googles Bedingungen. Sie ist nicht vollständig offline."},
+    {"title": "Einmal analysieren. Wieder neu erzählen.", "text": "Erfolgreiche Analysen werden lokal gespeichert. Neue Filmpläne verwenden sie erneut. Eine andere Auswahl oder Ziellänge allein erfordert keinen neuen KI-Aufruf."}
+  ],
+  "faqLabel": "GUT ZU WISSEN", "faqs": [
+    {"q": "Kann ich es schon ausprobieren?", "a": "OpenMemento ist in aktiver Entwicklung und noch keine fertig freigegebene Anwendung. Im Repository findet ihr die Python-Desktop-App und Startanleitungen für Windows und Linux. Die Filmqualität mit echten Familienaufnahmen muss noch validiert werden."},
+    {"q": "Ist das nur für Jahresrückblicke?", "a": "Nein. Wählt einen beliebigen Zeitraum oder eine Sammlung: Geburtstag, Wochenende, Urlaub, mehrere Monate oder ein Jahr. Die gewünschte Filmlänge richtet sich nach eurer Geschichte."},
+    {"q": "Übernimmt die KI jede Schnittentscheidung?", "a": "Ziel ist ein hilfreicher erster Schnitt. Ihr könnt Highlights prüfen, Momente ausschließen oder fest einschließen, Schnittgrenzen ändern und Ereignisse gewichten. Eure Einschätzung bleibt Teil des Prozesses."}
+  ],
+  "ctaLabel": "MIT BEDACHT ENTWICKELT. OFFEN GESTALTET.", "ctaTitle": "Mehr Momente ansehen.\nWeniger Momente vergessen.", "ctaText": "Verfolgt die Entwicklung, entdeckt den Python-Quellcode oder helft mit, Erinnerungen leichter erlebbar zu machen.", "docs": "Zur Startanleitung", "by": "Ein Projekt von", "footerLine": "Für die Momente, die einen Film verdienen.", "source": "Quellcode", "legal": "Impressum", "privacyLink": "Datenschutz", "top": "Nach oben"
+}

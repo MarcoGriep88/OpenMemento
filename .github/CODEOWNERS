@@ -1,0 +1,4 @@
+# Website changes require Marco's review when the main branch ruleset
+# requires pull requests and approval from code owners.
+/website/ @MarcoGriep88
+/.github/ @MarcoGriep88

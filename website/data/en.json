@@ -1,0 +1,32 @@
+{
+  "skip": "Skip to content", "navStory": "The idea", "navHow": "How it works", "navPrivacy": "Local first", "github": "View on GitHub", "eyebrow": "LESS EDITING. MORE REMEMBERING.",
+  "heroStart": "Life happens.", "heroEnd": "Make it a movie.", "heroText": "A thousand little clips. One story worth keeping. OpenMemento finds the meaningful moments in your family footage and brings them together, in the order life happened.",
+  "primary": "Explore the project", "secondary": "See how it works", "status": "Desktop application · In development", "photoLabel": "THE LITTLE THINGS BECOME THE BIG THINGS.", "photoAlt": "Sunlit mountain landscape, illustrating a family trip", "photoNote": "Illustrative footage · Not an application screenshot", "stamp": "Made for your memories", "frameLabel": "A SUMMER TO REMEMBER", "frameDate": "12 — 26 JULY", "frameCaption": "One trip. So many little stories.",
+  "strip": ["Your footage", "OpenCV + Gemini", "Chronological storytelling", "Rendered on your computer"],
+  "storyLabel": "01 / THE IDEA", "storyTitle": "You captured the moment.\nNow keep the feeling.", "storyText": "The first jump into the sea. A birthday wish. A laugh from behind the camera. The best parts of family life are scattered across camera rolls and hard drives. Finding them shouldn’t take another lifetime.", "storyQuote": "A meaningful moment matters more than a perfect shot.", "storyDetail": "OpenMemento is being built to turn large collections of short videos into thoughtful first cuts. Choose a weekend, a holiday, a month or any date range. The story follows your life, not a fixed template.",
+  "howLabel": "02 / FROM CAMERA ROLL TO MOVIE", "howTitle": "Less sorting.\nMore story.", "howIntro": "Local computer vision does the groundwork. Gemini helps understand what makes a moment worth keeping. You have the final say.",
+  "steps": [
+    {"title": "Bring your clips.", "text": "Select your media folders. The desktop app indexes recording dates and metadata locally, keeping your original files untouched.", "tag": "LOCAL MEDIA LIBRARY"},
+    {"title": "Find the moments.", "text": "OpenCV analyzes shots, motion and image quality. With your permission, Gemini analyzes video and audio to identify meaningful time ranges.", "tag": "OPENCV + GEMINI"},
+    {"title": "Shape your story.", "text": "Choose a date range and target duration. Cached analysis becomes an event-balanced, chronological movie plan that you can inspect and edit.", "tag": "EDITABLE FIRST CUT"},
+    {"title": "Make movie night.", "text": "Review the highlights, adjust the selection and export an MP4 locally with FFmpeg. Your movie is made on your computer.", "tag": "LOCAL EXPORT"}
+  ],
+  "demoLabel": "03 / A LITTLE LOOK AT THE IDEA", "demoTitle": "Any chapter of your life.", "demoIntro": "A weekend is a story. So is a whole year. You choose the scope.", "demoNote": "Interactive concept · Example dates and durations, not a live editor or generated result.", "examples": [
+    {"name": "A summer away", "date": "12–26 July 2026", "duration": "12 min", "chapters": ["The arrival", "By the water", "New adventures", "The way home"]},
+    {"name": "A birthday", "date": "3 October 2026", "duration": "5 min", "chapters": ["Getting ready", "Everyone’s here", "Make a wish", "One last dance"]},
+    {"name": "A year together", "date": "January–December 2026", "duration": "20 min", "chapters": ["Winter days", "Hello, spring", "Summer stories", "Home for the holidays"]}
+  ], "timelineLabel": "CHRONOLOGICAL MOVIE PLAN", "target": "TARGET", "timelineStart": "The beginning", "timelineEnd": "A memory to keep", "demoAria": "Choose a movie example",
+  "privacyLabel": "04 / YOUR FAMILY. YOUR FILES.", "privacyTitle": "At home on\nyour computer.", "privacyText": "Family footage is personal. OpenMemento keeps the media library, local analysis and final rendering on your machine. AI analysis is a separate, explicit step.",
+  "privacyItems": [
+    {"title": "Local where it matters.", "text": "Indexing, OpenCV processing, cached analysis and FFmpeg rendering run locally. No vendor cloud is needed to store or render your media."},
+    {"title": "Your key. Your choice.", "text": "Use your own Gemini API key, stored in the supported operating system credential store. Google bills you directly for AI usage."},
+    {"title": "Know what leaves your device.", "text": "Approved video/audio analysis proxies are sent directly to Google Gemini. Semantic analysis needs internet access and is subject to Google’s terms. It is not fully offline."},
+    {"title": "Analyze once. Create again.", "text": "Successful analysis is cached locally. New movie plans reuse it, so changing your selection or target duration does not itself require another AI call."}
+  ],
+  "faqLabel": "A FEW THINGS TO KNOW", "faqs": [
+    {"q": "Can I try it today?", "a": "This is an active development project, not a finished public release. The repository contains the Python desktop application and setup instructions for Windows and Linux. Real-world family movie quality still needs validation."},
+    {"q": "Is this only for year-in-review movies?", "a": "No. Pick any date range or collection: a birthday, a weekend, a vacation, several months or a year. Choose the target duration to suit the story."},
+    {"q": "Will it replace every editing decision?", "a": "The goal is a useful first cut. You can review highlights, exclude or force-include moments, change boundaries and adjust event importance. Your judgment remains part of the process."}
+  ],
+  "ctaLabel": "BUILT WITH INTENTION. BUILT IN THE OPEN.", "ctaTitle": "More moments watched.\nFewer moments forgotten.", "ctaText": "Follow the development, explore the Python source or help build a better way to remember.", "docs": "Read the setup guide", "by": "A project by", "footerLine": "For the moments that deserve a movie.", "source": "Source code", "legal": "Legal notice", "privacyLink": "Privacy", "top": "Back to top"
+}

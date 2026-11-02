@@ -1,0 +1,1 @@
+"""Desktop-Oberfläche von Memento."""

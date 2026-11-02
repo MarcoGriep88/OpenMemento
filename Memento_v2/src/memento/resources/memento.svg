@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="tile" x1="60" y1="24" x2="448" y2="496" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#244650"/>
+      <stop offset=".55" stop-color="#142b38"/>
+      <stop offset="1" stop-color="#0b1928"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="140" y1="126" x2="352" y2="382" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c6f8df"/>
+      <stop offset=".5" stop-color="#8ee4cf"/>
+      <stop offset="1" stop-color="#4fb9b4"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="78" y1="32" x2="420" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#92c9c7" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#92c9c7" stop-opacity=".05"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="24" width="472" height="472" rx="108" fill="#07131f" fill-opacity=".2"/>
+  <rect x="20" y="16" width="472" height="472" rx="108" fill="url(#tile)"/>
+  <rect x="25" y="21" width="462" height="462" rx="103" fill="none" stroke="url(#edge)" stroke-width="3"/>
+  <path d="M256 397C235 382 103 290 103 210C103 162 137 127 182 127C213 127 239 143 256 168C273 143 299 127 330 127C375 127 409 162 409 210C409 290 277 382 256 397Z" fill="#061924" fill-opacity=".3" transform="translate(0 9)"/>
+  <path d="M256 388C235 373 103 281 103 201C103 153 137 118 182 118C213 118 239 134 256 159C273 134 299 118 330 118C375 118 409 153 409 201C409 281 277 373 256 388Z" fill="url(#heart)"/>
+  <path d="M233 201C228 198 222 202 222 208V293C222 299 228 303 233 300L300 257C306 254 306 247 300 244Z" fill="#15313c"/>
+  <path d="M139 186C142 165 159 150 181 150" fill="none" stroke="#effff5" stroke-opacity=".55" stroke-width="10" stroke-linecap="round"/>
+</svg>

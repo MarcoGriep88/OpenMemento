@@ -1,0 +1,1 @@
+"""Sichere Ablage lokaler Zugangsdaten."""
