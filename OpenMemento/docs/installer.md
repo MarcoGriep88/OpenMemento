@@ -42,7 +42,9 @@ Ein veraltetes Paket wird zurückgewiesen. Direktaufruf:
 - Ein eigener leerer Programmordner mit dem Namen `OpenMemento` kann gewählt werden.
   Fremde nicht leere Ordner werden zurückgewiesen.
 - Startmenüeintrag, Programmeintrag in Windows und optionale Desktop-Verknüpfung.
-- Memento-Herz/Play-Icon für Anwendung, Desktop, Setup und Deinstallation.
+- Erinnerungsband-Logo für Anwendung, Desktop, Setup und Deinstallation;
+  passende Wortmarke im Setup-Kopf und ein eigenes Motiv auf Begrüßungs- und
+  Abschlussseiten. Die Grafiken werden mit `scripts/build_icons.py` erzeugt.
 - Eine bestehende, markierte Installation wird vor dem Kopieren der neuen Version
   über ihre bisherige Deinstallation bereinigt. Memento muss geschlossen sein.
 - Bibliothek und Projekte unter `%LOCALAPPDATA%\Memento_v2` sowie Zugangsdaten im

@@ -1,0 +1,47 @@
+{{ $t := index hugo.Data .Language.Lang }}
+{{ $h := $t.help }}
+{{ $root := .Site.GetPage "/help" }}
+{{ $current := . }}
+{{ $entries := slice }}
+{{ range $root.RegularPages.ByWeight }}
+  {{ $entries = $entries | append (dict "title" .Title "url" .RelPermalink "summary" .Description "text" .Plain) }}
+{{ end }}
+{{ $index := resources.FromString (printf "help-search-%s.json" .Language.Lang) ($entries | jsonify) }}
+<main id="main" class="help-layout wrap">
+  <aside class="help-sidebar" aria-label="{{ $h.navigation }}">
+    <a class="help-home" href="{{ $root.RelPermalink }}">{{ $h.label }} <span aria-hidden="true">↗</span></a>
+    <search class="help-search" data-help-search data-index="{{ $index.RelPermalink }}" data-empty="{{ $h.noResults }}" data-count="{{ $h.results }}" data-error="{{ $h.searchError }}">
+      <label for="help-query">{{ $h.search }}</label>
+      <input id="help-query" type="search" placeholder="{{ $h.searchPlaceholder }}" autocomplete="off" aria-controls="help-results">
+      <p class="help-search-status" role="status" aria-live="polite"></p>
+      <ul id="help-results" class="help-results" hidden></ul>
+    </search>
+    <details class="help-topics" open>
+      <summary>{{ $h.topics }}</summary>
+      <nav aria-label="{{ $h.navigation }}">
+        <a class="help-overview" href="{{ $root.RelPermalink }}" {{ if eq .RelPermalink $root.RelPermalink }}aria-current="page"{{ end }}>{{ $h.overview }}</a>
+        {{ range slice "start" "workflow" "reference" }}
+          {{ $group := . }}
+          <p class="help-nav-group">{{ index $h.groups $group }}</p>
+          {{ range $root.RegularPages.ByWeight }}
+            {{ if eq .Params.group $group }}<a href="{{ .RelPermalink }}" {{ if eq .RelPermalink $current.RelPermalink }}aria-current="page"{{ end }}>{{ .LinkTitle }}</a>{{ end }}
+          {{ end }}
+        {{ end }}
+      </nav>
+    </details>
+    <a class="help-support" href="https://ko-fi.com/marcogriep" rel="noopener">{{ $t.support }} <span aria-hidden="true">↗</span></a>
+  </aside>
+  <article class="help-article" aria-labelledby="help-title">
+    <nav class="help-breadcrumbs" aria-label="{{ $h.breadcrumbs }}"><a href="{{ .Site.Home.RelPermalink }}">OpenMemento</a><span aria-hidden="true">/</span>{{ if .IsSection }}<span>{{ $h.label }}</span>{{ else }}<a href="{{ $root.RelPermalink }}">{{ $h.label }}</a><span aria-hidden="true">/</span><span>{{ .LinkTitle }}</span>{{ end }}</nav>
+    <header class="help-heading"><p class="eyebrow">{{ $h.eyebrow }}</p><h1 id="help-title">{{ .Title }}</h1><p>{{ .Description }}</p></header>
+    {{ if not .IsSection }}<details class="help-toc" open><summary>{{ $h.onThisPage }}</summary>{{ .TableOfContents }}</details>{{ end }}
+    <div class="help-content">{{ .Content }}</div>
+    {{ if .IsSection }}
+      <div class="help-cards">{{ range $root.RegularPages.ByWeight }}<a class="help-card" href="{{ .RelPermalink }}"><span class="mono">{{ index $h.groups .Params.group }}</span><h2>{{ .Title }} <span aria-hidden="true">↗</span></h2><p>{{ .Description }}</p></a>{{ end }}</div>
+    {{ else }}
+      {{ $pages := $root.RegularPages.ByWeight }}
+      <nav class="help-pagination" aria-label="{{ $h.articleNavigation }}">{{ range $i, $page := $pages }}{{ if eq $page.RelPermalink $current.RelPermalink }}{{ if gt $i 0 }}{{ with index $pages (sub $i 1) }}<a href="{{ .RelPermalink }}"><span>{{ $h.previous }}</span>{{ .LinkTitle }}</a>{{ end }}{{ end }}{{ if lt $i (sub (len $pages) 1) }}{{ with index $pages (add $i 1) }}<a href="{{ .RelPermalink }}"><span>{{ $h.next }}</span>{{ .LinkTitle }} →</a>{{ end }}{{ end }}{{ end }}{{ end }}</nav>
+    {{ end }}
+    <p class="help-feedback">{{ $h.feedback }} <a href="{{ .Site.Params.repository }}/issues">{{ $h.reportIssue }} ↗</a></p>
+  </article>
+</main>

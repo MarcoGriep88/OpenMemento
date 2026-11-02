@@ -27,7 +27,7 @@ memento = "memento.app:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-memento = ["resources/*.svg", "resources/*.ico", "resources/*.png", "resources/*.json"]
+memento = ["resources/*.svg", "resources/*.ico", "resources/*.png", "resources/*.bmp", "resources/*.json"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

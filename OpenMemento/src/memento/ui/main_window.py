@@ -51,6 +51,7 @@ from memento.ui.recovery_dialog import RecoveryDialog
 from memento.ui.capture_time_dialog import CaptureTimeDialog
 from memento.ui.date_range_dialog import DateRangeDialog
 from memento.ui.folder_availability import FolderAvailabilityChecker
+from memento.ui.branding import brand_widget
 
 
 from memento.ui.theme import APP_STYLE, TEXT, WARNING, light_palette
@@ -371,9 +372,7 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout(sidebar)
         layout.setContentsMargins(16, 22, 16, 18)
         layout.setSpacing(8)
-        brand = QLabel("OpenMemento")
-        brand.setObjectName("brand")
-        layout.addWidget(brand)
+        layout.addWidget(brand_widget())
         tagline = QLabel(tr("Deine Familiengeschichten"))
         tagline.setObjectName("mutedLabel")
         layout.addWidget(tagline)

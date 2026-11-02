@@ -20,3 +20,9 @@ locale = 'de-DE'
 label = 'Deutsch'
 weight = 2
 title = 'OpenMemento — Eure Momente. Ein Film, der bleibt.'
+
+[languages.de.permalinks.page]
+help = '/hilfe/:slug/'
+
+[languages.de.permalinks.section]
+help = '/hilfe/'

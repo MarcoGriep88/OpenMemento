@@ -34,6 +34,14 @@ VIAddVersionKey /LANG=1031 "FileVersion" "${APP_VERSION}"
 VIAddVersionKey /LANG=1031 "LegalCopyright" "OpenMemento Projekt"
 
 !define MUI_ABORTWARNING
+!define MUI_ICON "${APP_ICON}"
+!define MUI_UNICON "${APP_ICON}"
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_RIGHT
+!define MUI_HEADERIMAGE_BITMAP "${PAYLOAD_DIR}\_internal\memento\resources\installer-header.bmp"
+!define MUI_HEADERIMAGE_UNBITMAP "${PAYLOAD_DIR}\_internal\memento\resources\installer-header.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "${PAYLOAD_DIR}\_internal\memento\resources\installer-welcome.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "${PAYLOAD_DIR}\_internal\memento\resources\installer-welcome.bmp"
 !define MUI_WELCOMEPAGE_TITLE "OpenMemento installieren"
 !define MUI_WELCOMEPAGE_TEXT "Lokaler Familienvideo-Editor.$\r$\n$\r$\nDie Installation gilt für dein Windows-Benutzerkonto und benötigt keine Administratorrechte.$\r$\n$\r$\nBibliothek, Filme und API-Schlüssel bleiben bei Updates und Deinstallation erhalten. Gemini-Analysen werden erst in der Anwendung ausdrücklich gestartet."
 !insertmacro MUI_PAGE_WELCOME

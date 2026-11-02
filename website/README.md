@@ -23,6 +23,36 @@ hugo --source website --minify --panicOnWarning
 
 Generated output is in `website/public/` and is intentionally ignored.
 
+## Help and support
+
+The user documentation lives in `content/help/`, in German and English. The
+German section is `/de/hilfe/`, English is `/en/help/`; `/hilfe/` and `/help/`
+redirect to those entry points. The language switch opens the matching translated
+article. Keep each guide's `weight` and `group` consistent across its two files.
+
+`layouts/partials/help-shell.html` builds the sidebar, table of contents, article
+navigation and one local JSON search index per language. Search runs in the
+browser with `assets/js/help.js`, without a third-party service. Navigation and
+articles remain usable without JavaScript. The Ko-fi support link is a plain
+external link; no widget or tracking script is embedded.
+
+Brand SVGs are copied from the app's resources by
+`OpenMemento/scripts/build_icons.py`. Run
+`OpenMemento/scripts/capture_website.py` to refresh the four actual app screenshots
+after changing the desktop appearance, using the application's Python environment.
+
+Validate the generated help and search behavior from the repository root:
+
+```powershell
+hugo --source website --minify --panicOnWarning --cleanDestinationDir
+python website/scripts/check_site.py
+node website/scripts/test_search.mjs
+```
+
+The checks cover internal links and anchors, both translations of each guide,
+language-specific search indices, matching and accent normalization, cached
+indices, retrying failed loads, clearing results and mobile topic navigation.
+
 ## Publish via FTP
 
 1. Configure repository secrets `FTP_HOSTNAME`, `FTP_USER` and `FTP_PASSWORD`.

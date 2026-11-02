@@ -158,5 +158,32 @@
   "workflowAI": "Sent to Gemini only with approval",
   "workflowCache": "Reuse saved analysis",
   "workflowOutput": "Your movie as an MP4",
-  "navApp": "The application"
+  "navApp": "The application",
+  "navHelp": "Help",
+  "support": "Support the project",
+  "supportDescription": "Enjoy OpenMemento? You can support my work with a voluntary contribution on Ko-fi.",
+  "help": {
+    "label": "Help & guides",
+    "navigation": "Help topics",
+    "search": "Search the documentation",
+    "searchPlaceholder": "What would you like to know?",
+    "noResults": "No results. Try a different search term.",
+    "results": "results",
+    "searchError": "Search could not be loaded. Please try again. You can still browse the topics.",
+    "topics": "All help topics",
+    "overview": "Welcome",
+    "groups": {
+      "start": "Getting started",
+      "workflow": "Your family movie",
+      "reference": "Good to know"
+    },
+    "breadcrumbs": "Breadcrumbs",
+    "eyebrow": "OPENMEMENTO / USER DOCUMENTATION",
+    "onThisPage": "On this page",
+    "articleNavigation": "More guides",
+    "previous": "← Previous",
+    "next": "Next",
+    "feedback": "Something missing or unclear?",
+    "reportIssue": "Share feedback on GitHub"
+  }
 }

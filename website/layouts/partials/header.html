@@ -1,9 +1,9 @@
 {{ $t := index hugo.Data .Language.Lang }}
 <a class="skip-link" href="#main">{{ $t.skip }}</a>
 <header class="site-header wrap">
-  <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="OpenMemento"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>OpenMemento<span class="brand-dot">.</span></a>
+  <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="OpenMemento">{{ partial "brand.html" . }}</a>
   <nav aria-label="{{ if eq .Language.Lang "de" }}Hauptnavigation{{ else }}Main navigation{{ end }}">
-    <a href="{{ .Site.Home.RelPermalink }}#application">{{ $t.navApp }}</a><a href="{{ .Site.Home.RelPermalink }}#idea">{{ $t.navStory }}</a><a href="{{ .Site.Home.RelPermalink }}#how">{{ $t.navHow }}</a><a href="{{ .Site.Home.RelPermalink }}#local">{{ $t.navPrivacy }}</a>
+    <a href="{{ .Site.Home.RelPermalink }}#application">{{ $t.navApp }}</a><a href="{{ .Site.Home.RelPermalink }}#idea">{{ $t.navStory }}</a><a href="{{ .Site.Home.RelPermalink }}#how">{{ $t.navHow }}</a><a href="{{ .Site.Home.RelPermalink }}#local">{{ $t.navPrivacy }}</a><a href="{{ (.Site.GetPage "/help").RelPermalink }}" {{ if eq .Section "help" }}aria-current="page"{{ end }}>{{ $t.navHelp }}</a>
   </nav>
-  <div class="header-tools"><div class="languages" aria-label="Language / Sprache">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.Lang }}" hreflang="{{ .Language.Lang }}" {{ if eq $.Language.Lang .Language.Lang }}aria-current="page"{{ end }}>{{ upper .Language.Lang }}</a>{{ end }}</div><a class="header-github" href="{{ .Site.Params.repository }}">GitHub <span aria-hidden="true">↗</span></a></div>
+  <div class="header-tools"><a class="header-help" href="{{ (.Site.GetPage "/help").RelPermalink }}">{{ $t.navHelp }}</a><div class="languages" aria-label="Language / Sprache">{{ range .AllTranslations }}<a href="{{ .RelPermalink }}" lang="{{ .Language.Lang }}" hreflang="{{ .Language.Lang }}" {{ if eq $.Language.Lang .Language.Lang }}aria-current="page"{{ end }}>{{ upper .Language.Lang }}</a>{{ end }}</div><a class="header-github" href="{{ .Site.Params.repository }}">GitHub <span aria-hidden="true">↗</span></a></div>
 </header>

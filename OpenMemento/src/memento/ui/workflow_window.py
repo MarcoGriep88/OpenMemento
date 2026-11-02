@@ -28,6 +28,7 @@ from memento.ui.main_window import MainWindow
 from memento.ui.movie_dialog import MovieDialog
 from memento.ui.semantic_dialog import SemanticDialog
 from memento.ui.settings_dialog import DEFAULT_MODEL
+from memento.ui.branding import brand_widget
 
 
 STEPS = ("Dashboard", "Film anlegen", "Material & Indexierung", "OpenCV & Gemini", "Schnitt & Musik", "Film & Export")
@@ -62,9 +63,7 @@ class WorkflowWindow(MainWindow):
         sidebar.setFixedWidth(250)
         nav = QVBoxLayout(sidebar)
         nav.setContentsMargins(16, 24, 16, 18)
-        brand = QLabel("OpenMemento")
-        brand.setObjectName("brand")
-        nav.addWidget(brand)
+        nav.addWidget(brand_widget())
         self.project_label = QLabel(tr("Dein nächster Familienfilm"))
         self.project_label.setWordWrap(True)
         self.project_label.setTextFormat(Qt.TextFormat.PlainText)
