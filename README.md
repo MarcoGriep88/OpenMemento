@@ -179,15 +179,13 @@ hugo server --source website
 hugo --source website --minify --panicOnWarning
 ```
 
-Open the address printed by Hugo. Language routes are `/OpenMemento/en/` and
-`/OpenMemento/de/` with the current configuration.
+Open the address printed by Hugo. Language routes are `/en/` and `/de/`.
 
-For deployment, select **GitHub Actions** in the repository's **Settings → Pages**.
-The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds
-website pull requests and deploys website changes pushed to `main`. Pull requests
-do not deploy. The configured public URL is
-`https://marcogriep88.github.io/OpenMemento/`; availability depends on enabling
-Pages and completing a deployment.
+The workflow in [`.github/workflows/ftp.yml`](.github/workflows/ftp.yml) builds
+website pull requests and deploys website changes pushed to `main` exclusively
+via FTP to `/public_html/openmemento.de/`. Pull requests do not deploy. Configure
+the repository secrets `FTP_HOSTNAME`, `FTP_USER` and `FTP_PASSWORD`.
+The configured public URL is `https://openmemento.de/`.
 
 See the [website README](website/README.md) for content editing, asset sources,
 deployment configuration and protection instructions.
@@ -214,8 +212,7 @@ To run the application tests after installing the development dependencies:
 Website and GitHub configuration changes are assigned to **@MarcoGriep88** in
 [`.github/CODEOWNERS`](.github/CODEOWNERS). To enforce that ownership, the repository
 maintainer must enable a `main` branch ruleset requiring pull requests and
-code-owner approval, dismiss stale approvals, and restrict the `github-pages`
-deployment environment to `main`. CODEOWNERS alone does not block changes.
+code-owner approval and dismiss stale approvals. CODEOWNERS alone does not block changes.
 See the [protection setup](website/README.md#protect-the-website-while-accepting-python-contributions).
 
 When reporting issues, include reproduction steps, operating system and relevant

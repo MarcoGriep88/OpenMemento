@@ -1,0 +1,64 @@
+name: Hugo · FTP
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - '.github/workflows/ftp.yml'
+  pull_request:
+    paths:
+      - 'website/**'
+      - '.github/workflows/ftp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-ftp-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: '0.162.1'
+
+jobs:
+  website-build-deploy:
+    name: Build Website and Deploy via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Install Hugo Extended
+        run: |
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/hugo.tar.gz" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+          tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$RUNNER_TEMP" hugo
+          sudo install "$RUNNER_TEMP/hugo" /usr/local/bin/hugo
+          hugo version
+
+      - name: Build Hugo site
+        run: hugo --source website --minify --gc --cleanDestinationDir --panicOnWarning
+
+      - name: Install lftp
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOSTNAME: ${{ secrets.FTP_HOSTNAME }}
+        run: |
+          : "${FTP_USER:?Missing FTP_USER secret}"
+          : "${FTP_PASSWORD:?Missing FTP_PASSWORD secret}"
+          : "${FTP_HOSTNAME:?Missing FTP_HOSTNAME secret}"
+          cd website/public
+          lftp -u "$FTP_USER","$FTP_PASSWORD" "$FTP_HOSTNAME" -e "
+            set cmd:fail-exit yes;
+            mirror -R --delete --verbose . /public_html/openmemento.de/;
+            quit"

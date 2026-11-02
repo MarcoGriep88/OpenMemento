@@ -1,6 +1,6 @@
 # OpenMemento project website
 
-Standalone, bilingual Hugo site for GitHub Pages. The Python application is
+Standalone, bilingual Hugo site deployed exclusively via FTP. The Python application is
 unchanged. English lives at `/en/`, German at `/de/`; the root redirects to English.
 All assets are served with the site. No theme, npm install, external fonts,
 analytics, cookies or Gemini credentials are needed to view the site.
@@ -14,8 +14,8 @@ From the repository root:
 hugo server --source website
 ```
 
-Open the URL printed by Hugo, including `/OpenMemento/en/` or
-`/OpenMemento/de/`. To build the production site:
+Open the URL printed by Hugo, including `/en/` or
+`/de/`. To build the production site:
 
 ```powershell
 hugo --source website --minify --panicOnWarning
@@ -23,22 +23,20 @@ hugo --source website --minify --panicOnWarning
 
 Generated output is in `website/public/` and is intentionally ignored.
 
-## Publish to GitHub Pages
+## Publish via FTP
 
-1. Push these source files and `.github/workflows/pages.yml` to `main`.
-2. In **Settings → Pages → Build and deployment**, choose **GitHub Actions**.
-3. Run **Hugo · GitHub Pages** from Actions, or push a website change to `main`.
-4. The expected address is `https://marcogriep88.github.io/OpenMemento/`.
+1. Configure repository secrets `FTP_HOSTNAME`, `FTP_USER` and `FTP_PASSWORD`.
+   `FTP_HOSTNAME` is the FTP server hostname or URL.
+2. Push these source files and `.github/workflows/ftp.yml` to `main`.
+3. Run **Hugo · FTP** from Actions on `main`, or push a website change to `main`.
+4. The generated `website/public/` contents are mirrored to
+   `/public_html/openmemento.de/`, including removal of obsolete remote files.
+5. The expected address is `https://openmemento.de/`.
 
 Pull requests build for validation but do not deploy. Publishing runs only from
-pushes to `main` and manual workflow runs. In the `github-pages` environment,
-restrict deployment branches to **Selected branches and tags → main**. This
-also prevents a manually dispatched workflow on another branch from deploying.
-Python-only pushes do not rebuild the website.
-
-If you rename the repository or configure a custom domain, update `baseURL` in
-`hugo.toml`; add a `static/CNAME` file only when using a custom domain.
-See [Hugo's GitHub Pages guide](https://gohugo.io/host-and-deploy/deploy-to-github-pages/).
+pushes to `main` and manual workflow runs on `main`.
+Python-only pushes do not rebuild the website. No GitHub Pages deployment is used.
+If the production domain changes, update `baseURL` in `hugo.toml` before building.
 
 ## Protect the website while accepting Python contributions
 
@@ -52,9 +50,7 @@ code owner. **CODEOWNERS is not enforcement by itself.** Enable it on GitHub:
    and **Dismiss stale pull request approvals when new commits are pushed**.
 4. Block force pushes and branch deletion. Keep bypass permissions limited to
    your own trusted administrative access; do not let general contributors bypass.
-5. In **Settings → Environments → github-pages**, allow deployments only from
-   `main`. Optionally require your own deployment approval if supported by your plan.
-6. In **Settings → Actions → General**, keep the default workflow token read-only
+5. In **Settings → Actions → General**, keep the default workflow token read-only
    and disable permission for Actions to create/approve pull requests unless needed.
 
 Contributors can fork the repository and propose Python changes through PRs.
@@ -108,10 +104,9 @@ without newsletter, customer portal, contact form or embedded third-party media.
 
 The privacy policy is prepared for the operator's requested **Hetzner hosting**,
 including the existing policy's 14-day log retention and Hetzner email service.
-The GitHub Pages preview/build configuration above is still present. For production
-on Hetzner, upload the generated `public/` contents and set `baseURL` to the actual
-production address before building. The published policy must match the host in
-use; the Hetzner policy does not describe a GitHub Pages deployment.
+The FTP workflow uploads the generated `public/` contents to the production
+webspace, with `baseURL` set to `https://openmemento.de/`. The published policy
+must match the host in use.
 
 ## Photography
 
