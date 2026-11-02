@@ -52,13 +52,13 @@ jobs:
         env:
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_HOSTNAME: ${{ secrets.FTP_HOSTNAME }}
+          FTP_HOST: ${{ secrets.FTP_HOST }}
         run: |
           : "${FTP_USER:?Missing FTP_USER secret}"
           : "${FTP_PASSWORD:?Missing FTP_PASSWORD secret}"
-          : "${FTP_HOSTNAME:?Missing FTP_HOSTNAME secret}"
+          : "${FTP_HOST:?Missing FTP_HOST secret}"
           cd website/public
-          lftp -u "$FTP_USER","$FTP_PASSWORD" "$FTP_HOSTNAME" -e "
+          lftp -u "$FTP_USER","$FTP_PASSWORD" "$FTP_HOST" -e "
             set cmd:fail-exit yes;
             mirror -R --delete --verbose . /public_html/openmemento.de/;
             quit"
