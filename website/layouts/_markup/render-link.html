@@ -1,0 +1,1 @@
+<a href="{{ if strings.HasPrefix .Destination "tel:" }}{{ .Destination | safeURL }}{{ else }}{{ .Destination }}{{ end }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text }}</a>{{- /* Preserve clickable telephone numbers in authored legal content. */ -}}

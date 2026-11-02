@@ -77,20 +77,41 @@ and [rulesets](https://docs.github.com/en/repositories/configuring-branches-and-
 
 - `data/en.json`, `data/de.json`: translated landing page content.
 - `content/_index.en.md`, `content/_index.de.md`: search/social descriptions.
+- `content/legal.*.md`, `content/privacy.*.md`: bilingual legal notice and privacy policy.
 - `layouts/`: shared accessible markup and SEO metadata.
-- `assets/css/main.css`: responsive design and square buttons.
+- `assets/css/main.css`: responsive white-and-mint design matching the desktop UI.
 - `assets/js/main.js`: lightweight example selector, no network calls.
-- `static/images/`: locally served illustrative photographs.
+- `static/images/`: locally served photographs and real application screenshots.
+- `layouts/partials/workflow-icon.html`: four scalable workflow illustrations.
 - `hugo.toml`: hosting URL, languages, repository and author website.
 
 The example timeline is explicitly a concept, not a functioning media editor.
+Application screenshots show the actual Qt UI with isolated sample projects,
+without private footage or AI requests. Regenerate them from the Python project:
+
+```powershell
+cd OpenMemento
+.venv\Scripts\python.exe scripts/capture_website.py
+```
+
+The script uses temporary settings and a temporary database, without reading the
+user's media library or credential store. It renders German and English views.
 The copy distinguishes local processing from the approved video/audio proxies
 sent to Google Gemini with the user's own API key. It identifies the application
 as in development and does not promise validated real-world selection quality.
 
-The footer links to Marco's existing imprint and privacy pages. Before a public
-launch, the site's operator should ensure their privacy notice covers this
-additional GitHub Pages hosting; the existing notice is not modified here.
+The footer links to this site's own German and English legal pages. Operator,
+contact, tax and insurance details were taken from
+[Marco's legal notice](https://marcogriep.de/impressum/). The privacy policy adapts
+[Marco's privacy policy](https://marcogriep.de/datenschutz/) to this static site,
+without newsletter, customer portal, contact form or embedded third-party media.
+
+The privacy policy is prepared for the operator's requested **Hetzner hosting**,
+including the existing policy's 14-day log retention and Hetzner email service.
+The GitHub Pages preview/build configuration above is still present. For production
+on Hetzner, upload the generated `public/` contents and set `baseURL` to the actual
+production address before building. The published policy must match the host in
+use; the Hetzner policy does not describe a GitHub Pages deployment.
 
 ## Photography
 

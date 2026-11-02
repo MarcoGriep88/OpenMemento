@@ -63,13 +63,13 @@ duration does not itself require another AI call.
 - Successful AI responses are cached. Analysis jobs support progress reporting,
   cancellation and resuming work.
 
-See the [application documentation](Memento_v2/README.md) for operational details
-and [implementation status](Memento_v2/docs/implementation-status.md) for known
+See the [application documentation](OpenMemento/README.md) for operational details
+and [implementation status](OpenMemento/docs/implementation-status.md) for known
 limitations and outstanding validation.
 
 ## Getting started
 
-The desktop application lives in [`Memento_v2/`](Memento_v2/).
+The desktop application lives in [`OpenMemento/`](OpenMemento/).
 
 ### Requirements
 
@@ -80,26 +80,26 @@ The desktop application lives in [`Memento_v2/`](Memento_v2/).
   backend in the desktop session.
 
 Dependencies are declared in
-[`Memento_v2/pyproject.toml`](Memento_v2/pyproject.toml).
+[`OpenMemento/pyproject.toml`](OpenMemento/pyproject.toml).
 
 ### Windows
 
 From a terminal in the repository root:
 
 ```powershell
-cd Memento_v2
+cd OpenMemento
 py -3.12 -m venv .venv
 .venv\Scripts\python.exe -m pip install -e ".[dev]"
 .venv\Scripts\python.exe -m memento.app
 ```
 
 After setup, you can also start the application with `./start_windows.ps1` from
-`Memento_v2`.
+`OpenMemento`.
 
 ### Linux
 
 ```bash
-cd Memento_v2
+cd OpenMemento
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -e ".[dev]"
 bash start_linux.sh
@@ -125,10 +125,10 @@ The language preference is stored locally. Project names, filenames, user prompt
 and cached AI descriptions keep their original content; changing the interface
 language does not trigger new analysis.
 
-Follow the [first-test guide](Memento_v2/docs/first-test.md) for a practical
+Follow the [first-test guide](OpenMemento/docs/first-test.md) for a practical
 walkthrough. Windows packaging instructions are in the
-[application README](Memento_v2/README.md) and
-[installer guide](Memento_v2/docs/installer.md).
+[application README](OpenMemento/README.md) and
+[installer guide](OpenMemento/docs/installer.md).
 
 ## Architecture
 
@@ -149,18 +149,18 @@ projects remain separate from cached media analysis.
 
 | Path | Purpose |
 | --- | --- |
-| `Memento_v2/src/memento/ui/` | Desktop interface and background workers |
-| `Memento_v2/src/memento/application/` | Indexing, analysis, planning and rendering services |
-| `Memento_v2/src/memento/domain/` | Media, movie and editing models |
-| `Memento_v2/src/memento/library/` | Local database, projects and recovery |
-| `Memento_v2/src/memento/media/` | Discovery, metadata and local video analysis |
-| `Memento_v2/src/memento/ai/` | Provider contracts, Gemini integration and segmentation |
-| `Memento_v2/src/memento/security/` | Secure credential storage |
-| `Memento_v2/tests/` | Application tests |
+| `OpenMemento/src/memento/ui/` | Desktop interface and background workers |
+| `OpenMemento/src/memento/application/` | Indexing, analysis, planning and rendering services |
+| `OpenMemento/src/memento/domain/` | Media, movie and editing models |
+| `OpenMemento/src/memento/library/` | Local database, projects and recovery |
+| `OpenMemento/src/memento/media/` | Discovery, metadata and local video analysis |
+| `OpenMemento/src/memento/ai/` | Provider contracts, Gemini integration and segmentation |
+| `OpenMemento/src/memento/security/` | Secure credential storage |
+| `OpenMemento/tests/` | Application tests |
 | `website/` | English and German Hugo project website |
 | `.github/` | Website ownership and GitHub Pages workflow |
 
-Read the [architecture notes](Memento_v2/docs/architecture.md) before proposing
+Read the [architecture notes](OpenMemento/docs/architecture.md) before proposing
 large changes.
 
 ## Project website
@@ -202,12 +202,12 @@ untouched and use synthetic or explicitly approved media for tests.
 To run the application tests after installing the development dependencies:
 
 ```powershell
-# From Memento_v2 on Windows
+# From OpenMemento on Windows
 .venv\Scripts\python.exe -m pytest -q
 ```
 
 ```bash
-# From Memento_v2 on Linux
+# From OpenMemento on Linux
 .venv/bin/python -m pytest -q
 ```
 
@@ -225,7 +225,7 @@ sharing diagnostics.
 ## License
 
 See [LICENSE](LICENSE) for the repository's GNU General Public License v3 text and
-[third-party notices](Memento_v2/THIRD_PARTY_NOTICES.md) for bundled components.
+[third-party notices](OpenMemento/THIRD_PARTY_NOTICES.md) for bundled components.
 
 ## Deutsch
 
@@ -249,7 +249,7 @@ mit euch ab. Die semantische Analyse ist deshalb nicht vollständig offline.
 Das Projekt ist **in Entwicklung**. Die Auswahlqualität mit echten
 Familienaufnahmen muss noch validiert werden.
 
-- [Deutsche Anleitung zur Desktop-App](Memento_v2/README.md)
-- [Ablauf für den ersten Test](Memento_v2/docs/first-test.md)
+- [Deutsche Anleitung zur Desktop-App](OpenMemento/README.md)
+- [Ablauf für den ersten Test](OpenMemento/docs/first-test.md)
 - [Hugo-Website und GitHub-Pages-Einrichtung](website/README.md)
 - [Marco Griep – Hauptwebsite](https://marcogriep.de/)

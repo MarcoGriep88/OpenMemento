@@ -23,37 +23,56 @@ env:
   HUGO_VERSION: '0.162.1'
 
 jobs:
-  build:
+  website-build-deploy:
+    name: Build and Deploy Website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
         with:
-          persist-credentials: false
-      - name: Install Hugo
-        run: |
-          curl --fail --location --retry 3 --output "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-          mkdir -p "$RUNNER_TEMP/hugo-bin"
-          tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$RUNNER_TEMP/hugo-bin" hugo
-          echo "$RUNNER_TEMP/hugo-bin" >> "$GITHUB_PATH"
-      - name: Build website
-        run: hugo --source website --minify --panicOnWarning
-      - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: website/public
+          ref: ${{ gitea.sha }}
+          fetch-depth: 0
 
-  deploy:
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Install latest Hugo Extended
+        run: |
+          HUGO_LATEST=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest \
+                        | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+          echo "Installing Hugo $HUGO_LATEST"
+
+          wget https://github.com/gohugoio/hugo/releases/download/v$HUGO_LATEST/hugo_extended_${HUGO_LATEST}_Linux-64bit.tar.gz
+          tar -xzf hugo_extended_${HUGO_LATEST}_Linux-64bit.tar.gz
+          sudo mv hugo /usr/local/bin/
+          hugo version
+
+      - name: Build Hugo site
+        run: |
+          cd website
+          sudo apt-get update
+          sudo apt-get install -y nodejs npm
+          npm install postcss postcss-cli autoprefixer --save-dev
+          npm install @tryghost/content-api js-yaml fs-extra dotenv jsdom flowbite node-fetch
+          chmod -R 777 .
+          hugo --minify --gc --cleanDestinationDir
+
+      - name: Upload website artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: website-public
+          path: website/public/**
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        env:
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOSTNAME: ${{ secrets.FTP_HOSTNAME }}
+        run: |
+          cd website/public
+          lftp -u "$FTP_USER","$FTP_PASSWORD" $FTP_HOSTNAME -e "
+            set ssl:verify-certificate no;
+            mirror -R --delete --verbose . /public_html/openmemento.de/;
+            quit"

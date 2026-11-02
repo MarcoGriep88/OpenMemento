@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+<main id="main" class="legal-page wrap section-space">
+  <article aria-labelledby="legal-title">
+    <a class="text-link" href="{{ .Site.Home.RelPermalink }}">{{ if eq .Language.Lang "de" }}Zur Startseite{{ else }}Back to home{{ end }} <span aria-hidden="true">↗</span></a>
+    <header class="legal-heading">
+      <p class="eyebrow">OPENMEMENTO / {{ if eq .Language.Lang "de" }}RECHTLICHES{{ else }}LEGAL{{ end }}</p>
+      <h1 id="legal-title">{{ .Title }}</h1>
+      <p>{{ .Description }}</p>
+    </header>
+    <div class="legal-content">{{ .Content }}</div>
+  </article>
+</main>
+{{ partial "footer.html" . }}
+{{ end }}
