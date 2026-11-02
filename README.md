@@ -21,13 +21,30 @@ A project by [Marco Griep](https://marcogriep.de/).
 [Deutsch](#deutsch) · [Getting started](#getting-started) ·
 [Project website](#project-website) · [Contributing](#contributing)
 
-## The issue
+## Why I’m building OpenMemento
 
-We as family are recording alot of video material and creating for each month an
-little videoclip. I dont have the time and effort anymore to cut those manually, some
-months having more than 200 small clips. Even i'm an softwaredeveloper i had also 
-no time to code this by myself and this is an vibe coded application. This can be 
-messy or overengineed. So feel free to help to keep this clean.
+As a family, we almost always have a camera or smartphone with us to capture the
+good moments. All too often, those recordings stay on a phone or hard drive and
+are never watched again. That’s why we turn ours into monthly and yearly movies
+to watch together as a family.
+
+The editing never had to be perfect. Still, watching hundreds, sometimes a
+thousand clips, finding the good parts and putting them in chronological order
+was a Sisyphean task. That first cut alone took countless hours. With two
+children, we simply couldn’t keep up anymore. That’s why I started OpenMemento.
+
+OpenCV checks the footage locally first. Gemini helps find meaningful moments in
+the video and audio. OpenMemento uses those results to build a chronological,
+editable first cut, whether it covers a month, a year, a holiday or any other
+period.
+
+My goal is to take those hours of assembling a first cut off your hands, leaving
+you to add background music, put a title at the beginning and give the movie your
+finishing touches. Those collected clips should become family movies you actually
+watch again.
+
+This application is being developed with AI coding tools. Contributions that help
+keep the code clear and maintainable are welcome.
 
 ## The idea
 
@@ -235,6 +252,31 @@ See [LICENSE](LICENSE) for the repository's GNU General Public License v3 text a
 ## Deutsch
 
 **Eure Momente. Ein Film, der bleibt.**
+
+### Warum ich OpenMemento entwickle
+
+Wir haben als Familie fast immer eine Kamera oder ein Smartphone dabei und halten
+die schönen Momente fest. Viel zu oft bleiben solche Videos danach auf dem Handy
+oder der Festplatte liegen und werden nie wieder angesehen. Wir machen deshalb
+Monats- und Jahresfilme daraus, die wir uns als Familie gemeinsam anschauen.
+
+Der Schnitt musste nie perfekt sein. Trotzdem war es jedes Mal eine
+Sisyphusarbeit, hunderte, manchmal tausend Clips durchzusehen, die schönen Stellen
+herauszusuchen und chronologisch zusammenzusetzen. Allein dieser Rohschnitt hat
+unzählige Stunden gebraucht. Mit zwei Kindern kamen wir irgendwann einfach nicht
+mehr hinterher. Deshalb habe ich OpenMemento gestartet.
+
+OpenCV prüft das Material lokal vor. Gemini hilft, die bedeutungsvollen Momente in
+Bild und Ton zu finden. Daraus erstellt OpenMemento einen chronologischen,
+bearbeitbaren Rohschnitt – für einen Monat, ein Jahr, einen Urlaub oder jeden
+anderen Zeitraum.
+
+Mein Ziel: Euch den stundenlangen Rohschnitt abnehmen, damit ihr noch die passende
+Hintergrundmusik ergänzen, einen Titel davor setzen und dem Film euren letzten
+Feinschliff geben könnt. So werden aus gesammelten Clips wieder Familienfilme,
+die ihr wirklich anschaut.
+
+### Was die Anwendung macht
 
 OpenMemento ist eine lokale Desktop-Anwendung, die aus vielen kurzen
 Familienvideos einen chronologischen Highlight-Film erstellt. **OpenCV** übernimmt
